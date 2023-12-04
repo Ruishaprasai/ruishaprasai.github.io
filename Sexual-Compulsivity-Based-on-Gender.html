@@ -397,9 +397,8 @@ library(AICcmodavg)</code></pre>
 <h3>Read the CSV file</h3>
 <pre class="r"><code>sexualcompulsivity.data &lt;- read.csv(&quot;C:/Users/ruish/Downloads/Libido.csv&quot;, header = TRUE, colClasses = c(&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;factor&quot;,&quot;numeric&quot;, &quot;numeric&quot;,&quot;numeric&quot;))</code></pre>
 </div>
-<div id="check-the-structure-of-your-data-to-ensure-its-loaded-correctly" class="section level3">
-<h3>Check the structure of your data to ensure it’s loaded
-correctly</h3>
+<div id="check-the-structure-of-data-to-ensure-its-loaded-correctly" class="section level3">
+<h3>Check the structure of data to ensure it’s loaded correctly</h3>
 <pre class="r"><code>str(sexualcompulsivity.data)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    3230 obs. of  13 variables:
 ##  $ Q1    : Factor w/ 4 levels &quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;: 1 1 1 1 1 1 1 1 1 1 ...
@@ -608,7 +607,7 @@ ggplot(sexualcompulsivity.data, aes(x = as.factor(gender))) +
 </div>
 <div id="lets-run-post-hoc-test-for-q2-and-q5" class="section level2">
 <h2>Let’s run post-hoc test for Q2 and Q5</h2>
-<p>Convert ‘gender’ to a factor if it’s not already</p>
+<p>Convert ‘gender’ to a factor</p>
 <pre class="r"><code>sexualcompulsivity.data$gender &lt;- as.factor(sexualcompulsivity.data$gender)</code></pre>
 <p>Ensure Q2 and Q5 is numeric</p>
 <pre class="r"><code>sexualcompulsivity.data$Q2 &lt;- as.numeric(sexualcompulsivity.data$Q2)
@@ -686,12 +685,11 @@ summary(lm_model)</code></pre>
 ## F-statistic:  0.58 on 3 and 3223 DF,  p-value: 0.6281</code></pre>
 <p><em>The linear regression model indicates that, after accounting for
 age, gender (categorized as ‘2’ and ‘3’) does not significantly predict
-the variation in the dependent variable (assumed to be the ‘score’ based
-on the context) as suggested by the non-significant p-values for gender
-(p = 0.315 for gender2, p = 0.517 for gender3). The overall model’s low
-R-squared and non-significant F-statistic suggest that the model has
-limited explanatory power in explaining the variability in the dependent
-variable.</em></p>
+the variation in the dependent variable ‘score’ as suggested by the
+non-significant p-values for gender (p = 0.315 for gender2, p = 0.517
+for gender3). The overall model’s low R-squared and non-significant
+F-statistic suggest that the model has limited explanatory power in
+explaining the variability in the dependent variable.</em></p>
 </div>
 </div>
 <div id="conclusion" class="section level1">
